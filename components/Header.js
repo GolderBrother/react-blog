@@ -2,7 +2,7 @@
  * @Author: golderBrother
  * @Date: 2019-10-26 16:50:39 
  * @Last Modified by: james.zhang
- * @Last Modified time: 2019-10-26 17:02:15
+ * @Last Modified time: 2019-10-27 17:14:07
  * @Description: 博客的头部每个页面都一样，所以制作成一个组件。这样就可以保持每个博客的页面头部都是统一的，而且易于上线后的维护。 
  */
 /* 
@@ -24,12 +24,12 @@ import "../static/style/components/header.css"
 const Header = (props) => (
     <div className="header">
         <Row type="flex" justify="center">
-            <Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
+            <Col xs={24} sm={24} md={24} lg={15} xl={12} xxl={10}>
                 <span className="header-logo">golderBrother</span>
                 <span className="header-text">95年前端小菜鸟一只~</span>
             </Col>
             <Col className="menu-container">
-            <Menu  mode="horizontal">
+            <Menu  mode="horizontal" xs={0} sm={0} md={14} lg={8} xl={6}>
                 <Menu.Item key="home">
                     <Icon type="home" />
                     首页

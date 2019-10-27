@@ -16,6 +16,13 @@ step:
 https://jspang.com/posts/2019/09/19/react-demo.html
 第三节 p03：制作博客公用头部并形成组件 已学完
 
+2019.10.27
+https://jspang.com/posts/2019/09/19/react-demo.html#p14：中台搭建3-restful-api设计简介和路由配置
+第十四节 p14：中台搭建3-RESTful API设计简介和路由配置 已学完
+
+
+### 友情链接
+[Next.js](https://nextjs.org/docs#automatic-static-optimization-indicator)
 
 
 

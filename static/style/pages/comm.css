@@ -1,3 +1,41 @@
 body {
     background-color: #f6f6f6;
 }
+
+/* common list style */
+@import './list.css';
+
+/* common style */
+.comm-main {
+    margin-top: .5rem;
+}
+
+.comm-left {
+    background-color: #FFF;
+    padding: .3rem;
+    border-radius: .3rem;
+    border-bottom: 1px solid #eee;
+}
+
+.comm-right {
+    margin-left: .5rem;
+    padding: .3rem;
+    border-radius: .3rem;
+    border-bottom: 1px solid #eee;
+    background-color: #FFF;
+}
+
+.comm-box {
+    background-color: #FFF;
+    margin-left: .5rem;
+    padding: .3rem;
+    border-radius: .3rem;
+    border: 1px solid #eee;
+}
+
+/* breadcrumb style */
+.breadcrumb-container {
+    padding: .5rem;
+    border-bottom: 1px solid #eee;
+    background-color: #e1f0ff;
+}
