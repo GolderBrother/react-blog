@@ -2,7 +2,7 @@
  * @Author: golderBrother
  * @Date: 2019-10-26 16:50:39 
  * @Last Modified by: james.zhang
- * @Last Modified time: 2019-10-27 17:14:07
+ * @Last Modified time: 2019-10-28 19:50:56
  * @Description: 博客的头部每个页面都一样，所以制作成一个组件。这样就可以保持每个博客的页面头部都是统一的，而且易于上线后的维护。 
  */
 /* 
@@ -30,7 +30,15 @@ const Header = (props) => (
             </Col>
             <Col className="menu-container">
             <Menu  mode="horizontal" xs={0} sm={0} md={14} lg={8} xl={6}>
-                <Menu.Item key="home">
+                {
+                    props.type && props.type.map(item => (
+                        <Menu.Item key={item.id}>
+                            <Icon type="home" />
+                            {item.typeName}
+                        </Menu.Item>  
+                    ))
+                }
+                {/* <Menu.Item key="home">
                     <Icon type="home" />
                     首页
                 </Menu.Item>
@@ -41,7 +49,7 @@ const Header = (props) => (
                 <Menu.Item key="life">
                     <Icon type="smile" />
                     生活
-                </Menu.Item>
+                </Menu.Item> */}
             </Menu>
             </Col>
         </Row>
