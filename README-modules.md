@@ -1,5 +1,4 @@
 ```markdown-navbar```组件
-
 ```markdown-navbar```组件是一款第三方提供的组件，因为这个是比较小众的需求，所以使用的人并不多。目前只有18star,这个是国人开发的，我用起来还不错，希望作者可以一直维护下去（目前开来是不进行维护了，但是用起来还是挺好用）。
 
 [github:markdown-navbar](https://github.com/parksben/markdown-navbar)
@@ -12,7 +11,6 @@
 - ordered: 显示数字编码，默认是显示的，也就是true，设置为false就不显示了。
 
 ### markdown-navbar的安装和使用
-
 用npm install进行安装，命令如下：
 
 ```npm install --save markdown-navbar```

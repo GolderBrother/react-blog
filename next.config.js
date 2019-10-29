@@ -2,7 +2,7 @@
  * @Author: golderBrother
  * @Date: 2019-10-26 16:27:07 
  * @Last Modified by: james.zhang
- * @Last Modified time: 2019-10-29 17:59:27
+ * @Last Modified time: 2019-10-29 18:21:54
  * @Description: 这个就是Next.js的总配置文件 
  */
 // 这个的主要功能就是让Next.js可以加载CSS文件，有了这个包才可以进行配置。

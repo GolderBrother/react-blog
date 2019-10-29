@@ -2,7 +2,11 @@
  * @Author: golderBrother
  * @Date: 2019-10-26 16:50:39 
  * @Last Modified by: james.zhang
+<<<<<<< HEAD
  * @Last Modified time: 2019-10-29 11:09:37
+=======
+ * @Last Modified time: 2019-10-29 18:26:23
+>>>>>>> dfbca92c652c1939e79e4d753a73db4acbdd161b
  * @Description: 博客的头部每个页面都一样，所以制作成一个组件。这样就可以保持每个博客的页面头部都是统一的，而且易于上线后的维护。 
  */
 /* 
