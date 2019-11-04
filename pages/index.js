@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 // Error:./node_modules/postcss-preset-env/index.mjs
 // Can't import the named export 'feature' from non EcmaScript module (only default export is available)
@@ -6,6 +6,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { Col, Row, List, Icon } from "antd";
 import axios from "axios";
+// 对Markdown语法的解析需要引入的模块
+import marked from "marked";
+import hljs from "highlight.js";
+import 'highlight.js/styles/monokai-sublime.css';
+
 import Header from "../components/Header";
 import Author from "../components/Author";
 import Advert from "../components/Advert";
@@ -16,14 +21,29 @@ import "../static/style/pages/index.css";
 const Home = props => {
   const [myList, setMyList] = useState([...(props.list || [])]);
   const [type, setType] = useState(props.type || "");
-  console.log('type', type);
+  const renderer = new marked.Renderer();
+  marked.setOptions({
+    renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false,
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: false,
+    sanitize:false,
+    xhtml: false,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
+  const selectedKey = props.query && props.query.id && props.query.id.toString() || "0";
   return (
     <div>
       <Head>
         <title>Home</title>
       </Head>
-
-      <Header type={type} />
+      <Header type={type} selectedKey={selectedKey} />
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
           <div className="list-container">
@@ -56,7 +76,9 @@ const Home = props => {
                       {item.view_count}人
                     </span>
                   </div>
-                  <div className="list-context">{item.context}</div>
+                  {/* dangerouslySetInnerHTMl 是React标签的一个属性，类似于angular的ng-bind；既可以插入DOM，又可以插入字符串，用来解析html字符胡灿或者DOM */}
+                  {/* 注意：dangerouslySetInnerHTML定义的标签里面不能包含任何内容, 包括内容 */}
+                  <div className="list-context" dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}></div>
                 </List.Item>
               )}
             />
@@ -98,7 +120,6 @@ Home.getInitialProps = async () => {
         console.log(err);
         throw new Error(err);
       });
-    console.log("getInitialProps result: ", result);
     return result || {};
   } catch (error) {
     throw new Error(error);

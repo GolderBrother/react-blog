@@ -2,7 +2,7 @@
  * @Author: golderBrother
  * @Date: 2019-10-27 17:19:48
  * @Last Modified by: james.zhang
- * @Last Modified time: 2019-10-29 18:26:47
+ * @Last Modified time: 2019-11-04 15:42:57
  * @Description: 博客的详情页
  */
 
@@ -90,7 +90,6 @@ const Detailed = (props = {}) => {
       return hljs.highlightAuto(code).value // 增加Code的高亮显示
     }
   })
-  console.log("props.article_content", props.article_content)
   // props.article_content = props.article_content + `### test`;
   const html = marked(props.article_content);
   return (
@@ -128,7 +127,7 @@ const Detailed = (props = {}) => {
                   <Icon type="fire" /> {props.view_count}人
                 </span>
               </div>
-  
+              {/* 注意：dangerouslySetInnerHTML定义的标签里面不能包含任何内容, 包括内容 */}
               <div className="detailed-content" dangerouslySetInnerHTML={{__html: html}}>
                 {/* <ReactMarkdown
                   source={markdown}
@@ -165,7 +164,6 @@ const Detailed = (props = {}) => {
 }
 Detailed.getInitialProps = async (props) => {
   // 获取文章详情数据
-  console.log(props.query.id);
   let id = props.query.id;
   const result = await new Promise(async resolve => {
     const {data} = await axios.get(`${servicePath.getArticleById}/${id}`) || {};
